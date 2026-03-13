@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hey Farwaa ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+font-family:'Poppins',sans-serif;
+overflow:hidden;
+}
+
+.container{
+background:white;
+padding:45px;
+border-radius:18px;
+box-shadow:0 15px 40px rgba(0,0,0,0.25);
+text-align:center;
+max-width:420px;
+animation:fadeIn 1.5s ease;
+position:relative;
+}
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:42px;
+color:#ff4d6d;
+margin-bottom:10px;
+}
+
+.line{
+opacity:0;
+transform:translateY(20px);
+animation:slideUp 1s forwards;
+font-size:18px;
+margin:12px 0;
+color:#444;
+}
+
+.line:nth-child(2){animation-delay:0.6s;}
+.line:nth-child(3){animation-delay:1.2s;}
+.line:nth-child(4){animation-delay:1.8s;}
+.line:nth-child(5){animation-delay:2.4s;}
+
+.question{
+margin-top:20px;
+font-size:20px;
+font-weight:500;
+}
+
+.buttons{
+margin-top:30px;
+position:relative;
+height:80px;
+}
+
+button{
+padding:12px 26px;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+#yes{
+background:#ff4d6d;
+color:white;
+}
+
+#yes:hover{
+transform:scale(1.1);
+}
+
+#no{
+background:#555;
+color:white;
+position:absolute;
+left:120px;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes slideUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Hey Farwaa ❤️</h1>
+
+<p class="line">I know we just met… but somehow you already made my day brighter.</p>
+<p class="line">I didn't expect today to feel special… but then I met you.</p>
+<p class="line">I may not know you very well yet, but I'd really like to change that.</p>
+<p class="line">So I wanted to ask something simple…</p>
+
+<p class="question">Would you go on a date with me? 😊</p>
+
+<div class="buttons">
+
+<button id="yes" onclick="yesClicked()">Yes ❤️</button>
+<button id="no">No</button>
+
+</div>
+
+</div>
+
+<script>
+
+function yesClicked(){
+
+document.body.innerHTML=`
+<div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100vh;background:linear-gradient(135deg,#ff758c,#ff7eb3);color:white;font-family:Poppins;text-align:center;">
+
+<h1 style="font-family:'Great Vibes',cursive;font-size:55px;">You made my day sweetheart ❤️</h1>
+
+<p style="font-size:22px;">Now I'm really looking forward to our date 😊</p>
+
+</div>
+`;
+
+}
+
+const no=document.getElementById("no");
+
+function escapeButton(){
+
+const x=Math.random()*(window.innerWidth-100);
+const y=Math.random()*(window.innerHeight-100);
+
+no.style.left=x+"px";
+no.style.top=y+"px";
+
+alert("Please select Yes ❤️");
+
+}
+
+no.addEventListener("mouseenter",escapeButton);
+
+</script>
+
+</body>
+</html>
