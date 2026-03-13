@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Farwaa ❤️</title>
+<title>For You ❤️</title>
 
 <style>
 body{
@@ -13,7 +13,7 @@ color:white;
 overflow:hidden;
 }
 
-/* star background */
+/* subtle star texture */
 body::before{
 content:"";
 position:absolute;
@@ -42,7 +42,8 @@ transition:opacity 2s ease;
 }
 
 .text{
-font-size:28px;
+position:relative;
+font-size:26px;
 max-width:80%;
 text-align:center;
 line-height:1.6;
@@ -56,7 +57,7 @@ to{opacity:1;transform:translateY(0);}
 
 .buttons{
 position:absolute;
-bottom:70px;
+bottom:60px;
 display:flex;
 gap:20px;
 display:none;
@@ -68,6 +69,7 @@ font-size:18px;
 border:none;
 border-radius:30px;
 cursor:pointer;
+transition:0.3s;
 }
 
 #yesBtn{
@@ -79,22 +81,10 @@ box-shadow:0 0 20px #ff4b5c;
 #noBtn{
 background:gray;
 color:white;
-position:absolute;
+position:relative;
 }
 
-/* popup */
-#popup{
-display:none;
-position:absolute;
-bottom:140px;
-background:white;
-color:black;
-padding:10px 20px;
-border-radius:20px;
-font-size:16px;
-}
-
-/* final screen */
+/* Final Screen */
 #finalScreen{
 display:none;
 position:absolute;
@@ -105,67 +95,65 @@ align-items:center;
 flex-direction:column;
 text-align:center;
 background:radial-gradient(circle at center,#1a1a2e,#000);
+overflow:hidden;
 }
 
 #finalScreen h1{
-font-size:34px;
+font-size:32px;
 animation:fadeUp 2s ease forwards;
 }
 
-/* hearts */
-.heart{
+.rose{
 position:absolute;
 font-size:28px;
 animation:floatUp 6s linear infinite;
-opacity:0.9;
+opacity:0.8;
 }
 
 @keyframes floatUp{
-0%{transform:translateY(100vh) scale(0.5);opacity:0;}
+0%{transform:translateY(100vh);opacity:0;}
 10%{opacity:1;}
-100%{transform:translateY(-10vh) scale(1.5);opacity:0;}
+100%{transform:translateY(-10vh);opacity:0;}
 }
 </style>
 </head>
 
 <body>
 
+<!-- Slides -->
 <div class="slide">
-<div class="text">Sometimes you meet someone… and something just feels different.</div>
+<div class="text">The first time I saw you… I didn’t know my life was changing.</div>
 </div>
 
 <div class="slide">
-<div class="text">We may have just met, but talking to you already feels special.</div>
+<div class="text">Your smile still feels like home.</div>
 </div>
 
 <div class="slide">
-<div class="text">There’s something about your vibe that makes me want to know you more.</div>
+<div class="text">Even in silence… you are my safest place.</div>
 </div>
 
 <div class="slide">
-<div class="text">So I thought… why not ask something simple.</div>
+<div class="text">And in every version of my future… I still choose you.</div>
 </div>
 
+<!-- Buttons -->
 <div class="buttons">
 <button id="yesBtn">Yes ❤️</button>
 <button id="noBtn">No</button>
 </div>
 
-<div id="popup">Please say yes 🥺👉🏻👈🏻</div>
-
+<!-- Final Screen -->
 <div id="finalScreen">
-<h1>Farwaa, would you like to go on a date with me? 🌹</h1>
+<h1>You made my day, Farwaa ❤️</h1>
 </div>
 
 <script>
-
 let slides=document.querySelectorAll(".slide");
 let buttons=document.querySelector(".buttons");
 let yesBtn=document.getElementById("yesBtn");
 let noBtn=document.getElementById("noBtn");
 let finalScreen=document.getElementById("finalScreen");
-let popup=document.getElementById("popup");
-
 let index=0;
 
 function showSlide(i){
@@ -185,38 +173,29 @@ buttons.style.display="flex";
 showSlide(index);
 setInterval(nextSlide,5000);
 
-/* NO button runs away + popup */
+/* playful no button */
 noBtn.addEventListener("mouseover",function(){
-
-popup.style.display="block";
-setTimeout(()=>popup.style.display="none",1500);
-
-let x=Math.random()*(window.innerWidth-120);
-let y=Math.random()*(window.innerHeight-120);
-
-noBtn.style.left=x+"px";
-noBtn.style.top=y+"px";
-
+let x=Math.random()*200-100;
+let y=Math.random()*200-100;
+noBtn.style.transform=`translate(${x}px,${y}px)`;
 });
 
-/* YES button celebration */
+/* yes button action */
 yesBtn.addEventListener("click",function(){
-
 buttons.style.display="none";
 slides.forEach(s=>s.style.display="none");
 finalScreen.style.display="flex";
 
-for(let i=0;i<40;i++){
-let heart=document.createElement("div");
-heart.classList.add("heart");
-heart.innerHTML="❤️";
-heart.style.left=Math.random()*100+"vw";
-heart.style.animationDuration=(4+Math.random()*3)+"s";
-document.body.appendChild(heart);
+/* create floating roses */
+for(let i=0;i<20;i++){
+let rose=document.createElement("div");
+rose.classList.add("rose");
+rose.innerHTML="🌹";
+rose.style.left=Math.random()*100+"vw";
+rose.style.animationDuration=(4+Math.random()*4)+"s";
+document.body.appendChild(rose);
 }
-
 });
-
 </script>
 
 </body>
